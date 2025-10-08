@@ -1,0 +1,4 @@
+# Seminar Informatiky
+
+## David Zacek
+
