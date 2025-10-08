@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import dice
+
 '''
 Ship class for battle game
 '''
@@ -55,27 +55,6 @@ class Ship:
         Returns the current status of the ship.
         '''
         return self._status
-
-
-    
-
-import random
-
-class Dice:
-    def __init__(self, sides):
-        self.__sides = sides
-
-    def roll(self):
-        return random.randint(1, self.__sides)
-
-    def get_sides(self):
-        return self.__sides
-
-def main():
-    d4 = Dice(4)
-    print(d4.roll())
-    d6 = Dice(6)
-    print(d6.roll())
 
 if __name__ == "__main__":
     main()
