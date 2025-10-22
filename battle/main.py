@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 
-import dice
-import ship
+import kostka
+import lod
 
-d = dice.Dice(10)
-def get_status():
-    return f'ship.Ship.get_status()'
-  
-ship1 = ship.Ship("Destroyer", 100, 20, 18, d, get_status())
-ship2 = ship.Ship("Cruiser", 100, 15, 22, d, get_status())
+k = kostka.Kostka(10)
+lod1 = lod.Lod('Ajax', 100, 20, 18, k)
+lod2 = lod.Lod('Baracuda', 100, 15, 22, k)
 
-ship1.attack_roll(ship2)
-print(ship1.get_status())
-print(ship2.get_status())
+lod1.utoc(lod2)
+print(lod1.vypis_zpravu())
+print(lod2.vypis_zpravu())
