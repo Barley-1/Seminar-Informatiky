@@ -14,35 +14,26 @@ class Ship:
         self._attack = attack
         self._defense = defense
         self._dice = dice
-        self._status = status
+        self._status = ''
 
     def __str__(self):
-        '''
-        Returns the string representation of the ship.
-        '''
         return str(self._name)
 
     def attack_roll(self, opponent):
-        '''
-        Simulates an attack roll against an opponent ship.
-        '''
         attack_rolls = self._attack + self._dice.roll()
-        opponent.defend_roll(attack_rolls)
         status_report = f'{self._name} shoots its cannons dealing {attack_rolls} damage.'
+        self.set_status(status_report)
+        opponent.defend_roll(attack_rolls)
 
     
     def defend_roll(self, attack_rolls):
-        '''
-        Simulates a defense roll against an opponent ship's attack.
-        '''
-        defense_rolls = self._defense + self._dice.roll()
-        damage = attack_rolls - defense_rolls
+        damage = attack_rolls - (self._defense + self._dice.roll())
         if damage > 0:
             status_report = f'{self._name} takes {damage} damage to the hull!'
             self._size -= damage
         else:
             status_report = f'{self._name} evaded the attack!'
-            self.set_status(status)
+        self.set_status(status_report)
 
     def set_status(self, status):
         '''
@@ -56,5 +47,5 @@ class Ship:
         '''
         return self._status
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
